@@ -1,9 +1,12 @@
-from tkinter import *
-from tkinter.messagebox import *
+#start watching this code from the last where the buttons are created
+from tkinter import *   #importing tkinter
+from tkinter.messagebox import * #for message box
 tkWindow = Tk()
-tkWindow.geometry('350x300')
+tkWindow.geometry('350x300')#setting up size of window
 turn=0
 flag=0
+# defining command functions for the buttons respectively
+# see the buttons created below first
 def changeText1():
     global turn
     if button1['text']==' ':
@@ -107,6 +110,7 @@ def checkwin():
     b7 = button7['text']
     b8 = button8['text']
     b9 = button9['text']
+    #conditions for winning
     if b1==b2==b3=="X" or b4==b5==b6=="X" or b7==b8==b9=="X" or b1==b4==b7=="X" or b2==b5==b8=="X" or b3==b6==b9=="X" or b1==b5==b9=="X" or b3==b5==b7=="X" :
         showinfo("huraaayy!!!!","player X wins")
     elif b1==b2==b3=="O" or b4==b5==b6=="O" or b7==b8==b9=="O" or b1==b4==b7=="O" or b2==b5==b8=="O" or b3==b6==b9=="O" or b1==b5==b9=="O" or b3==b5==b7=="O" :
@@ -116,6 +120,7 @@ def checkwin():
 def reset():
     global turn
     turn=0
+    #reset all button's text to empty space
     button1["text"]=" "
     button2["text"] = " "
     button3["text"] = " "
@@ -127,7 +132,7 @@ def reset():
     button9["text"] = " "
 def exit():
     tkWindow.destroy()
-
+# adding buttons and commands
 button1 = Button(tkWindow,text=' ',command=changeText1,height=5,width=10,bg="brown",fg="yellow")
 button2 = Button(tkWindow,text=' ',command=changeText2,height=5,width=10,bg="brown",fg="yellow")
 button3 = Button(tkWindow,text=' ',command=changeText3,height=5,width=10,bg="brown",fg="yellow")
@@ -137,6 +142,9 @@ button6 = Button(tkWindow,text=' ',command=changeText6,height=5,width=10,bg="bro
 button7 = Button(tkWindow,text=' ',command=changeText7,height=5,width=10,bg="brown",fg="yellow")
 button8 = Button(tkWindow,text=' ',command=changeText8,height=5,width=10,bg="brown",fg="yellow")
 button9 = Button(tkWindow,text=' ',command=changeText9,height=5,width=10,bg="brown",fg="yellow")
+button10= Button(tkWindow,text='PLAY AGAIN',command=reset,bg="grey",fg="black")
+button11= Button(tkWindow,text='EXIT',command=exit,bg="grey",fg="black")
+#setting positions of the buttons
 button1.grid(column=1,row=0)
 button2.grid(column=2,row=0)
 button3.grid(column=3,row=0)
@@ -146,12 +154,11 @@ button6.grid(column=3,row=1)
 button7.grid(column=1,row=2)
 button8.grid(column=2,row=2)
 button9.grid(column=3,row=2)
-button10= Button(tkWindow,text='PLAY AGAIN',command=reset,bg="grey",fg="black")
 button10.grid(column=4,row=0)
-button11= Button(tkWindow,text='EXIT',command=exit,bg="grey",fg="black")
 button11.grid(column=4,row=2)
+#adding labels
 l1=Label(tkWindow,text="TIC TAC TOE ")
 l1.grid(column=4,row=1)
 l2=Label(tkWindow,text="1st turn:X ")
 l2.grid(column=1,row=6)
-tkWindow.mainloop()
+tkWindow.mainloop()# keep the window running
